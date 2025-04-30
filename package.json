@@ -28,7 +28,10 @@
   },
   "author": {
     "name": "Jordi Tarrida",
-    "email": "jorditarrida@uoc.edu"
+    "email": "jorditarrida@uoc.edu",
+    "name2": "Alumno: Eugenio Blanco Fernández",
+    "email2": "eblancofe@uoc.edu",
+    "url": "https://github.com/eblancofe/pec2-html-css-ii"
   },
   "license": "MIT",
   "bugs": {
