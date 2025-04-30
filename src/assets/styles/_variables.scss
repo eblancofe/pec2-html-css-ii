@@ -1,0 +1,40 @@
+@use "sass:color";
+
+@import "bootstrap/scss/functions"; //Importa función Bootstrap
+//Importar el resto de Bootstrap
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/bootstrap";
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+$font-family-serif: "Georgia", "Times New Roman", serif;
+
+//Colores del boilerplate
+$uoc-corporate: #000078; //color fondo del footer
+$master-bg: #8FAC95; //color fondo del boilerplate
+$container1-bg: #445147; //color de letra del container principal
+$container-bg: color.scale($container1-bg, $lightness: 80%); //color fondo del container
+
+//Configuración de ancho del viewport
+$mqMinWidth: 320px; //anchura mínima para móviles
+$mqMaxWidthMedio: 768px; //anchura media para tablets
+$mqMaxWidth: 1024px; //anchura máxima para PC
+
+//Sobrescribir variables antes de importar Bootstrap
+$primary: $master-bg; //Cambia color primario
+$secondary: $container1-bg; //Cambia color secundario
+
+//asignamos valores a variables de Bootstrap
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary
+);
+
+ //función en Sass para transformar píxeles (px) a unidades (rem)
+ @function px-a-rem($px, $base: 16px) {
+  $valor : calc(($px / $base)); //cálculo de valor
+   @return ($valor * 1rem); //retornamos valores
+ }
+

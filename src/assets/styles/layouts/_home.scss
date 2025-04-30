@@ -1,0 +1,990 @@
+* {
+  box-sizing: border-box;
+}
+/* Configuración responsive para distintos tamaños de dispositivos
+desde móviles, tabletas, ordenadores personales */
+
+/* Estilos básicos para todos los tamaños de pantalla */
+/* Configuración del cuerpo de la página principal */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 2rem;
+  font-family: $font-family-sans-serif;
+  font-size: px-a-rem(16px);
+  line-height: 24px;
+  background-color: $master-bg;
+  color: $container1-bg;
+}
+
+.uoc__container {
+  width: auto;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 2rem;
+  text-align: center;
+  background-color: $container-bg;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.uoc__logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+  max-width: 200px;
+  height: auto;
+}
+
+.uoc__title {
+  font-family: $font-family-serif;
+  font-size: px-a-rem(24px);
+  font-weight: 700;
+  color: $container1-bg;
+}
+
+/* maquetación CSS Grid - Footer */
+.uoc__footer {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  background-color: $uoc-corporate;
+  font-weight: 700;
+  color: white;
+  padding: 20px;
+}
+
+:is(.index__container-container, .index__container--menu, .pagetwo__flex-container, 
+.pagethree__container, .pagefour__container) {
+  color: $container1-bg; //color de la fuente del contenedor  
+}
+
+//imagen con efecto diapositiva Polaroid
+.polaroid {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  text-align: center;
+  padding: 5%;
+}
+.imagen__container {
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+//botones enlaces a otras páginas
+.button {
+  border: none;
+  color: $container1-bg; //color de la fuente del botón
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button__rrss {
+  border: none;
+  color: $container1-bg; //color de la fuente del botón
+  padding: 30px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;  
+}
+.button__rrss:hover {
+  color: $uoc-corporate; //Cambia el color al pasar el cursor
+}
+.button__imagen--container {
+  border: none;
+  color: $container1-bg; //color de la fuente del botón
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.fuente__logo {
+  font-weight: bold;
+}
+
+//Configuración para navegadores antiguos sin soporte de CSS - Grid
+@supports (not (display: grid)) {
+  @media (min-width: 320px) {
+    .index__container--menu, 
+    .index__container-container, 
+    .pagethree__container, 
+    .pagefour__container, 
+    .uoc__footer {
+      display: flex;
+      flex-direction: column;      
+    }   
+    .uoc__container {
+      max-width: 50%; //se acotan cotas máximas de anchura
+    }
+    .uoc__logo {
+      max-width: 50%; //se acotan cotas máximas de anchura
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .index__container--menu, 
+    .index__container-container, 
+    .pagethree__container, 
+    .pagefour__container, 
+    .uoc__footer {
+      display: flex;
+      flex-direction: column;
+    }
+    .uoc__footer {
+      text-align: center;
+    }
+  }
+  @media (min-width: 1024px) {
+    .index__container--menu, 
+    .index__container-container, 
+    .pagethree__container, 
+    .pagefour__container, 
+    .uoc__footer {
+      display: flex;
+      flex-direction: column;
+    }    
+    .uoc__footer {
+      text-align: center;
+    }
+    .pagetwo__flex-container {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+      margin-top: 3%;
+    }
+    .pagetwo__flex-container--item {
+      width: 100%;
+      margin: 10px;
+      text-align: center;
+      font-size: 30px;
+      flex: 1;
+    }
+    .pagetwo__flex-container--polaroid {
+      width: 80%;
+      background-color: white;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      margin-bottom: 25px;
+      text-align: center;
+      padding: 5%;
+    }
+    .pagetwo__flex-container-imagen--container {
+      text-align: center;
+      font-size: 14px;
+    }  
+  }
+}//de soporte no soportado
+
+@layer minMobile, maxTablet, minPC;
+
+/* Estilos para pantallas de al menos 320px de ancho */
+@supports (display:grid) {
+  @layer minMobile {
+    @media (min-width: $mqMinWidth) {    
+      //Se aplica el código cuando el ancho del viewport tiene mínimo el valor de la variable 
+      body {
+        font-size: 14px; //tamaño fuente fijo
+      }
+      .uoc__container {
+        max-width: none; //se eliminan cotas máximas de anchura
+      }
+      .uoc__logo {
+        max-width: none; //se eliminan cotas máximas de anchura
+      }
+      .uoc__footer {
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr; //1 columna
+      }
+      .fuente__logo {
+        font-size: 100%;
+      }
+      :is(.imagen__container, .button__imagen--container) {
+        font-size: 10px;
+      }
+
+      /* maquetación CSS Grid - Contenedor >320*/
+      .index__container--menu {
+        display: grid;
+        grid-template-columns: 1fr; //1 columna
+        grid-template-rows: repeat(4, 0.25fr); //4 filas con altura iguales de tamaño
+      }    
+        .index__container-menu-item--logo1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          text-align: center;
+          margin-top: 25%;
+        }
+        .index__container-menu-item--cabecera1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+          text-align: center;
+          font-size: 150%;
+        }
+        .index__container-menu-item--menu1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+          text-align: center;
+        }
+      .index__container-container {
+        display: grid;
+        grid-template-columns: 1fr; //1 columna
+        grid-template-rows: repeat(8, 0.25fr); //8 filas con altura iguales de tamaño
+      }
+        .index__container-container-item--imagen {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          text-align: center;
+        }
+        .index__container-container-item--titulo1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+          text-align: center;
+        }
+        .index__container-container-item--titulo2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 3 / 4;
+          text-align: center;
+        }
+        .index__container-container-item--contacto {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 4 / 5;
+          text-align: center;
+        }
+        .index__container-container-item--logo2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 5 / 6;
+          text-align: center;
+          margin-top: 25%;
+        }
+        .index__container-container-item--cabecera2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 6 / 7;
+          text-align: center;
+          font-size: 150%;
+        }
+        .index__container-container-item--menu2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 7 / 8;
+          text-align: center;
+        }
+        .index__container-container-item--rrss {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 2;
+          grid-row: 8 / 9;
+          text-align: center;
+        }
+
+      /* P2 - Participantes - maquetación Flex */
+      .pagetwo__flex-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        //align-items: center;
+        width: 100%;
+        align-items: stretch;
+      }
+        .pagetwo__flex-container--item {
+          width: 100%;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+          flex: 1;
+        }
+        .pagetwo__flex-container--polaroid {
+          width: 100%;
+          background-color: white;        
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          margin-bottom: 25px;
+          text-align: center;        
+          padding: 5%;
+        }
+        .pagetwo__flex-container-imagen--container {
+          text-align: center;
+          font-size: 10px;
+        }
+
+        /* P3 - Artículos */
+        .pagethree__container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); //2 columnas
+          grid-template-rows: repeat(9, 0.25fr); //9 filas con altura iguales de tamaño
+        }      
+        :is(.pagethree__container-item--imagen1, .pagethree__container-item--imagen2) {
+          /* Estilos comunes */
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 3;
+          text-align: center;
+          width: 100%;
+        }
+        .pagethree__container-item--imagen1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 1 / 5;
+          grid-row: 1 / 2;
+          //text-align: center;
+          //width: 100%;
+        }
+        .pagethree__container-item--polaroid {
+          width: 100%;
+          background-color: white;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          margin-bottom: 25px;
+          text-align: center;
+          padding: 5%;
+        }
+        .pagethree__container-item-imagen--container {
+          text-align: center;
+          font-size: 12px;
+        }
+        :is(.pagethree__container-item--titulo1, .pagethree__container-item--titulo2) {
+          /* Estilos comunes */
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 3;
+          grid-column: 1 / 3;
+          //grid-row: 2 / 3;
+          text-align: center;
+        }
+        .pagethree__container-item--titulo1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 1 / 3;
+          grid-row: 2 / 3;
+          //text-align: left;
+        }
+        .pagethree__container-item--titulo2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 1 / 3;
+          grid-row: 3 / 4;
+          text-align: left;
+        }
+        :is(.pagethree__container-item--parrafo1, .pagethree__container-item--parrafo2, 
+        .pagethree__container-item--parrafo3,
+          .pagethree__container-item--parrafo4, .pagethree__container-item--parrafo5) {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 1 / 3;
+          //grid-row: 3 / 4;
+          text-align: left;
+        }
+        .pagethree__container-item--parrafo1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 4 / 5;
+          //text-align: left;
+        }
+        .pagethree__container-item--parrafo2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 5 / 6;
+          //text-align: left;
+        }
+        .pagethree__container-item--parrafo3 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 6 / 7;
+          //text-align: left;
+        }
+        .pagethree__container-item--imagen2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 1 / 5;
+          grid-row: 7 / 8;
+          //text-align: center;
+          //width: 100%;
+        }
+        .pagethree__container-item--parrafo4 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 8 / 9;
+          //text-align: left;
+        }
+        .pagethree__container-item--parrafo5 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 9 / 10;
+          //text-align: left;
+        }
+        li:where(.quitar__punto){
+          list-style-type: none; //quitar punto de lista
+        }
+        ul:has(p) li {
+          border: 1px solid hwb(45 40% 80%); //color en formato HWB
+        }
+        ul:has(p) {
+          color: hwb(45 40% 80%); //color en formato HWB
+        }
+        ul:has(p) p {
+          border: 1px solid hwb(45 40% 80%); //color en formato HWB
+        }
+        
+        /* P4 - Formulario */
+        .pagefour__container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); //4 columnas
+          grid-template-rows: repeat(3, 0.25fr); //3 filas con altura iguales de tamaño
+        }
+        :is(.pagefour__container-item--titulo1, .pagefour__container-item--titulo2) {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 2 / 4;
+          //grid-row: 1 / 2;
+          text-align: left;
+          background: color(display-p3 1 1 1); //super white!
+          color: hwb(45 40% 80%); //color en formato HWB      
+        }
+        .pagefour__container-item--titulo1 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 1 / 2;
+          //text-align: left;
+          //background: color(display-p3 1 1 1); //super white!
+          //color: hwb(45 40% 80%); //color en formato HWB
+        }
+        .pagefour__container-item--titulo2 {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          //grid-column: 2 / 4;
+          grid-row: 2 / 3;
+          //text-align: left;
+          //background: color(display-p3 1 1 1); //super white!
+          //color: hwb(45 40% 80%); //color en formato HWB
+        }
+        .pagefour__container-item--formulario {
+          //background-color: lightblue;
+          //border: 1px solid #ccc;
+          //padding: 10px;
+          grid-column: 2 / 4;
+          grid-row: 3 / 4;
+          text-align: left;
+        }
+    }//de media >320
+  }//de layer
+    
+
+  /* Estilos para pantallas de al menos 768px de ancho */
+  @layer maxTablet {
+    @media (min-width: $mqMaxWidthMedio) {
+      //Se aplica el código cuando el ancho del viewport tiene mínimo el valor de la variable 
+      body {
+        font-size: 18px; //tamaño fuente fijo
+      }
+      .uoc__container {
+        min-width: 768px; //anchura máxima
+        //márgenes automáticos
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .uoc__title {
+        font-size: 30px;
+      }
+      .uoc__logo {
+        max-width: none; //se eliminan cotas máximas de anchura
+      }
+      .fuente__logo {
+        font-size: 80%;
+      }
+      :is(.imagen__container, .button__imagen--container) {
+        font-size: 10px;
+      }
+      .uoc__footer {
+        text-align: left;
+        grid-template-columns: 1fr 2.3fr; //2 columnas distintas
+      }
+
+      /* Maquetación CSS Grid - Contenedor >768 */
+      .index__container--menu {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); //10 columnas de igual tamaño
+        grid-template-rows: repeat(1, 0.25fr); //1 fila con altura iguales de tamaño
+      } 
+      :is(.index__container-menu-item--logo1, .index__container-container-item--logo2) {
+        grid-column: 1 / 2;
+        text-align: right;
+      }
+      .index__container-menu-item--logo1 {
+        grid-row: 1 / 2;
+      }
+      .index__container-menu-item--cabecera1 {
+        grid-column: 2 / 5;
+        grid-row: 1 / 2;
+        text-align: left;
+      }
+      :is(.index__container-menu-item--menu1, .index__container-menu-item--menu2) {
+        text-align: right;
+      }
+      .index__container-menu-item--menu1 {
+        grid-column: 5 / 11;
+        grid-row: 1 / 2;
+      }
+      .index__container-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); //10 columnas de igual tamaño
+        grid-template-rows: repeat(7, 0.75fr); //7 filas con altura iguales de tamaño
+      }
+      .index__container-container-item--imagen {
+        padding: 10%;
+        grid-column: 3 / 9;
+        grid-row: 1 / 3;
+        text-align: center;
+      }
+      :is(.index__container-container-item--titulo1, .index__container-container-item--titulo2) {
+        grid-column: 3 / 9;
+        text-align: center;
+      }
+      .index__container-container-item--titulo1 {
+        grid-row: 4 / 5;
+      }
+      .index__container-container-item--titulo2 {
+        grid-row: 5 / 6;
+      }
+      .index__container-container-item--contacto {
+        grid-column: 3 / 9;
+        grid-row: 6 / 7;
+        text-align: center;
+      }
+      .index__container-container-item--logo2 {
+        grid-row: 7 / 8;
+      }
+      .index__container-container-item--cabecera2 {
+        grid-column: 2 / 4;
+        grid-row: 7 / 8;
+        text-align: left;
+      }
+      .index__container-container-item--menu2 {
+        grid-column: 4 / 9;
+        grid-row: 7 / 8;
+      }
+      .index__container-container-item--rrss {
+        grid-column: 9 / 11;
+        grid-row: 7 / 8;
+        text-align: center;
+      }
+
+      /* P2 - Participantes - maquetación Flex */
+      .pagetwo__flex-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        height: 100%;
+      }
+      .pagetwo__flex-container--item {
+        width: 100%;
+        text-align: center;
+        font-size: 30px;      
+      }
+      .pagetwo__flex-container--polaroid {
+        width: 80%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+        text-align: center;
+        padding: 5%;
+      }
+      .pagetwo__flex-container-imagen--container {
+        text-align: center;
+        font-size: 10px;
+      }
+
+      /* P3 - Artículos */
+      .pagethree__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); //4 columnas
+        grid-template-rows: repeat(8, 0.25fr); //8 filas con altura iguales de tamaño
+      }
+      :is(.pagethree__container-item--imagen1, .pagethree__container-item--imagen2) {
+        //Estilos comunes
+        grid-column: 1 / 5;
+        text-align: center;
+        width: 100%;
+      }
+      .pagethree__container-item--imagen1 {
+        grid-row: 1 / 2;
+      }
+      .pagethree__container-item--polaroid {
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+        text-align: center;
+        padding: 5%;
+      }
+      .pagethree__container-item-imagen--container {
+        text-align: center;
+        font-size: 12px;
+      }
+      :is(.pagethree__container-item--titulo1, .pagethree__container-item--titulo2) {
+        //Estilos comunes 
+        grid-row: 2 / 3;
+        text-align: left;
+      }
+      .pagethree__container-item--titulo1 {
+        grid-column: 2 / 3;
+      }
+      .pagethree__container-item--titulo2 {
+        grid-column: 3 / 4;
+      }
+      :is(.pagethree__container-item--parrafo1, .pagethree__container-item--parrafo2, 
+      .pagethree__container-item--parrafo3,
+      .pagethree__container-item--parrafo4, .pagethree__container-item--parrafo5) {
+        grid-column: 2 / 4;
+        text-align: left;
+      }
+      .pagethree__container-item--parrafo1 {
+        grid-row: 3 / 4;
+      }
+      .pagethree__container-item--parrafo2 {
+        grid-row: 4 / 5;
+      }
+      .pagethree__container-item--parrafo3 {
+        grid-row: 5 / 6;
+      }
+      .pagethree__container-item--imagen2 {
+        grid-row: 6 / 7;
+      }
+      .pagethree__container-item--parrafo4 {
+        grid-row: 7 / 8;
+      }
+      .pagethree__container-item--parrafo5 {
+        grid-row: 8 / 9;
+      }
+      li:where(.quitar__punto) {
+        list-style-type: none; //quitar punto de lista
+      }
+      ul:has(p) li {
+        border: 1px solid hwb(45 40% 80%); //color en formato HWB
+      }
+      ul:has(p) {
+        color: hwb(45 40% 80%); //color en formato HWB
+      }
+      ul:has(p) p {
+        border: 1px solid hwb(45 40% 80%); //color en formato HWB
+      }
+
+      /* P4 - Formulario */
+      .pagefour__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); //4 columnas
+        grid-template-rows: repeat(3, 0.25fr); //3 filas con altura iguales de tamaño
+      }
+      :is(.pagefour__container-item--titulo1, .pagefour__container-item--titulo2) {
+        padding: 10px;
+        grid-column: 2 / 4;
+        text-align: left;
+        background: color(display-p3 1 1 1); //super white!
+        color: hwb(45 40% 80%); //color en formato HWB      
+      }
+      .pagefour__container-item--titulo1 {
+        grid-row: 1 / 2;
+      }
+      .pagefour__container-item--titulo2 {
+        grid-row: 2 / 3;
+      }
+      .pagefour__container-item--formulario {
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+        text-align: left;
+      }
+    }//de media >768 
+  }//de layer
+
+  /* Estilos para pantallas de al menos 1024px de ancho */
+  @layer minPC {
+    @media (min-width: $mqMaxWidth) {    
+      //Se aplica el código cuando el ancho del viewport tiene mínimo el valor de la variable 
+      body {
+        font-size: 18px; //tamaño fuente fijo
+      }
+      .uoc__container {
+        min-width: 1024px; //anchura máxima
+        margin-left: auto; //márgenes automáticos
+        margin-right: auto; //márgenes automáticos
+      }
+      .uoc__title {
+        font-size: 36px;
+        line-height: 1; //separación de línea entre texto
+      }
+      .uoc__logo {
+        max-width: none; //se eliminan cotas máximas de anchura
+      }
+      .fuente__logo {
+        font-size: 120%;
+        line-height: 1;
+      }
+      .uoc__footer {
+        text-align: left;
+        grid-template-columns: 1fr 2.3fr; /* Dos columnas de distinto tamaño */
+        max-width: none; //se eliminan cotas máximas de anchura
+      }
+      /* Maquetación CSS Grid - Contenedor >1024*/
+      .index__container--menu {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); //10 columnas de igual tamaño
+        grid-template-rows: repeat(1, 0.5fr); //1 filas con altura iguales de tamaño
+      }
+      :is(.index__container-menu-item--logo1, .index__container-menu-item--logo2) {
+        grid-column: 1 / 2;
+        text-align: right;
+      }
+      .index__container-menu-item--logo1 {
+        grid-row: 1 / 2;
+      }
+      :is(.index__container-menu-item--cabecera1, .index__container-menu-item--cabecera2) {
+        grid-column: 2 / 5;
+        text-align: left;
+      }
+      .index__container-menu-item--cabecera1 {
+        grid-row: 1 / 2;
+      }
+      :is(.index__container-menu-item--menu1, .index__container-menu-item--menu2) {
+        grid-column: 5 / 10;
+        text-align: right;
+      }
+      .index__container-menu-item--menu1 {
+        grid-row: 1 / 2;
+      }
+      .index__container-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr); // 10 columnas de igual tamaño
+        grid-template-rows: repeat(7, 0.5fr); // 7 filas con altura iguales de tamaño
+      }
+      .index__container-container-item--imagen {
+        padding: 10%;
+        grid-column: 3 / 9;
+        grid-row: 1 / 4;
+        text-align: center;
+      }
+      :is(.index__container-container-item--titulo1, .index__container-container-item--titulo2) {      
+        grid-column: 3 / 9;
+        text-align: center;
+      }
+      .index__container-container-item--titulo1 {
+        grid-row: 4 / 5;
+        font-size: 80%;
+      }
+      .index__container-container-item--titulo2 {
+        grid-row: 5 / 6;
+      }
+      .index__container-container-item--contacto {
+        grid-column: 3 / 9;
+        grid-row: 6 / 7;
+        text-align: center;
+      }
+      .index__container-container-item-logo2 {
+        grid-row: 7 / 8;
+      }
+      .index__container-container-item--cabecera2 {
+        grid-column: 2 / 4;
+        grid-row: 7 / 8;
+      }
+      .index__container-container-item--menu2 {
+        grid-row: 7 / 8;
+      }
+      .index__container-container-item--rrss {
+        grid-column: 10 / 11;
+        grid-row: 7 / 8;
+        text-align: center;
+      }
+
+      /* P2 - Participantes - maquetación Flex */
+      .pagetwo__flex-container {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        align-items: stretch;
+        width: 100%;
+        margin-top: 3%;
+      }
+      .pagetwo__flex-container--item {
+        width: 100%;
+        margin: 10px;
+        text-align: center;
+        font-size: 30px;
+      }    
+      .pagetwo__flex-container--polaroid {
+        width: 80%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+        text-align: center;
+        padding: 5%;
+      }
+      .pagetwo__flex-container-imagen--container {
+        text-align: center;
+        font-size: 14px;
+      }
+
+      /* P3 - Artículos */
+      .pagethree__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); //4 columnas
+        grid-template-rows: repeat(8, 0.25fr); //8 filas con altura iguales de tamaño
+      }
+      :is(.pagethree__container-item--imagen1, .pagethree__container-item--imagen2){
+        //Estilos comunes 
+        grid-column: 1 / 5;
+        text-align: center;
+        width: 100%;
+      }
+      .pagethree__container-item--imagen1 {
+        grid-row: 1 / 2;
+      }
+      .pagethree__container-item--polaroid {
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+        text-align: center;
+        padding: 5%;
+      }
+      .pagethree__container-item-imagen--container {
+        text-align: center;
+        font-size: 12px;
+      }
+      :is(.pagethree__container-item--titulo1, .pagethree__container-item--titulo2) {
+        //Estilos comunes
+        grid-row: 2 / 3;
+        text-align: left;
+      }
+      .pagethree__container-item--titulo1 {
+        grid-column: 2 / 3;
+      }
+      .pagethree__container-item--titulo2 {
+        grid-column: 3 / 4;
+      }
+      :is(.pagethree__container-item--parrafo1, .pagethree__container-item--parrafo2, 
+      .pagethree__container-item--parrafo3, 
+      .pagethree__container-item--parrafo4, .pagethree__container-item--parrafo5) {
+        //Estilos comunes
+        grid-column: 2 / 4;
+        text-align: left;
+      }
+      .pagethree__container-item--parrafo1 {
+        grid-row: 3 / 4;
+      }
+      .pagethree__container-item--parrafo2 {
+        grid-row: 4 / 5;
+      }
+      .pagethree__container-item--parrafo3 {
+        grid-row: 5 / 6;
+      }
+      li:where(.quitar__punto) {
+        list-style-type: none; //quitar punto de lista
+      }
+      ul:has(p) li {
+        border: 1px solid hwb(45 40% 80%); //color en formato HWB
+      }
+      ul:has(p) {
+        color: hwb(45 40% 80%); //color en formato HWB
+      }
+      ul:has(p) p {
+        border: 1px solid hwb(45 40% 80%); //color en formato HWB
+      }
+      .pagethree__container-item--imagen2 {
+        grid-row: 6 / 7;
+      }
+      .pagethree__container-item--parrafo4 {
+        grid-row: 7 / 8;
+      }
+      .pagethree__container-item--parrafo5 {
+        grid-row: 8 / 9;
+      }
+
+      /* P4 - Formulario */
+      .pagefour__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); //4 columnas
+        grid-template-rows: repeat(3, 0.25fr); //3 filas con altura iguales de tamaño
+      }
+      :is(.pagefour__container-item--titulo1, .pagefour__container-item--titulo2) {
+        grid-column: 2 / 4;
+        text-align: left;
+        background: color(display-p3 1 1 1); //super white!
+        color: hwb(45 40% 80%); //color en formato HWB      
+      }
+      .pagefour__container-item--titulo1 {
+        grid-row: 1 / 2;
+      }
+      .pagefour__container-item--titulo2 {
+        grid-row: 2 / 3;
+      }
+      .pagefour__container-item--formulario {
+        margin-top: 10%;
+        grid-column: 2 / 4;
+        grid-row: 3 / 4;
+        text-align: left;
+      }
+    }//de media >1024
+  }//de layer
+}//de supports

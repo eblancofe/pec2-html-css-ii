@@ -1,0 +1,99 @@
+<main>
+  <!-- Parte intermedia de la página -->
+  <div class="pagefour__container">
+    <div class="pagefour__container-item--titulo1"><!-- título principal -->
+      <h1 class="uoc__title"><i class="fa-solid fa-recycle"></i> Jornadas de Economía Circular <strong>(JdE)</strong></h1>
+    </div>
+    <div class="pagefour__container-item--titulo2">
+      <h1 class="uoc__title">Formulario de contacto</h1>
+      <p>
+        En el siguiente formulario, se puede realizar para obtener información acerca de las (JdE), como también facililtarnos la información acerca de los posibles participantes 
+        en esta u otra edición posterior, y así tener la cobertura necesaria logística y de aforo necesarias para que se celebren en unas extraordinarias 
+        condiciones favorables, nuestra Jornadas de Economía Circular (JdE).
+      </p>
+    </div>
+    <div class="pagefour__container-item--formulario"><!-- formulario de prueba de Netlify -->
+        <form name="contacto" method="POST" netlify>
+          <div class="form-group">
+            <p><!-- Nombre de la persona, campo requerido-->
+            <label for="text_name">Nombre</label>
+            <input type="text" class="form-control" id="text_name" placeholder="Introduce tu nombre" required>
+            </p>
+            <p><!-- Apellido/s de la persona, campo NO requerido-->
+            <label for="text_last_name">Apellidos</label>
+            <input type="text" class="form-control" id="text_last_name" placeholder="Introduce tus apellidos">
+            </p>
+            <p><!-- Edad de la persona, campo NO requerido-->
+              <label for="number">Edad</label>
+              <input type="number" class="form-control" id="number" placeholder="Introduce tu edad">
+            </p>
+            <p><!-- Email de la persona, campo requerido-->
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Introduce tu email" required>
+            </p>
+            <p><!-- Selección de ponencia, campo requerido-->
+            <label>Selecione charla/s de ponente/s:</label><select class="form-select" aria-label="Selección menú" name="pertenencia[]" multiple required>
+              <option value="escuela">Escuela de negocios</option>
+              <option value="universidad">Universitaria C.Económicas/ADE</option>
+              <option value="master">Máster en Economía Circular</option>
+              <option value="aprovecha">Aprovechamiento de materiales</option>
+              <option value="ambiente">Impacto medioambiental</option>
+              <option value="lineal">Economía circular vs Economía lineal</option>
+              <option value="beneficios">Beneficios mutuos</option>
+              <option value="libre">Charla/Ponencia de tipo Libre</option>
+            </select>
+            </p>            
+            <p><!-- Selección del modo participante de la persona, campo requerido-->
+            <label>Selecione modo de participación:</label>
+              <select class="form-select" aria-label="Selección menú" name="modo[]" required>
+                <option value="">Elige participación</option>
+                <option value="ponente">Ponente</option>
+                <option value="asistente">Asistente</option>
+                <option value="interventor">Expertos</option>
+              </select>
+            </label>
+            <p><!-- área de texto para escribir el mensaje del usuario a la organización -->
+              <label>Mensaje / Propuesta / Mejora / Aclaración: <textarea class="form-control" name="message"></textarea></label>
+            </p>
+            </p><p>&nbsp;</p>
+            <p><!-- botón de enviar con clase de Bootstrap -->
+              <button type="submit" class="btn btn-primary">Enviar formulario</button>
+            </p>
+          </div><!--de grupo-formulario -->
+        </form><!-- de formulario -->
+    </div>
+  </div>
+
+  <!-- Parte intermedia-final de la página -->
+  <div class="index__container-container">
+    <div class="index__container-container-item--contacto">
+      <p>
+        Para más información, puede dirigirse al siguiente contacto:<a href="mailto:info@jdecircular.com"
+          class="button">info@jdecircular.com</a>
+      </p>
+    </div>
+    <div class="index__container-container-item--logo2"><!-- Mostramos logotipo principal -->
+      <picture>
+        <source srcset="./assets/images/logo-jornadas-economia.png?as=webp&width=50" type="image/webp" />
+        <img src="./assets/images/logo-jornadas-economia.png?width=50" alt="Logo (JdE)" class="uoc__logo" />
+      </picture>
+    </div>
+    <div class="index__container-container-item--cabecera2"><!-- texto de logotipo -->
+      <p class="fuente__logo">JdE</p>
+      <p class="fuente__logo">Jornadas de Economía</p>
+    </div>
+    <div class="index__container-container-item--menu2"><!-- enlaces del menú principal -->
+      <p>
+        <a href="index.html" class="button">Principal</a>
+        <a href="p2_participantes.html" class="button">Participantes</a>
+        <a href="p3_articulos.html" class="button">Artículos</a>
+        <a href="p4_formulario.html" class="button">Formulario</a>
+      </p>
+    </div>
+    <div class="index__container-container-item--rrss"><!-- enlaces a redes sociales -->
+      <a href="#" class="button__rrss"><i class="fa-brands fa-google-plus-g"></i></a>
+      <a href="#" class="button__rrss"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="button__rrss"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+  </div>
+</main>
