@@ -46,7 +46,7 @@ body {
   color: $container1-bg;
 }
 
-/* maquetación CSS Grid - Footer */
+/* maquetación CSS-Footer */
 .uoc__footer {
   margin-top: 1.5rem;
   font-size: 0.75rem;
@@ -54,6 +54,30 @@ body {
   font-weight: 700;
   color: white;
   padding: 20px;
+}
+ 
+//Logotipo de (JdE)
+.logo__circulo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+.circulo {
+  width: 100px;
+  height: 100px;
+  border: 10px solid $container1-bg;
+  border-radius: 50%;
+  position: absolute;
+}
+.medio-circulo {
+  width: 100px;
+  height: 50px;
+  background-color: $container1-bg;
+  border-radius: 100px 100px 0 0;
+  position: absolute;
+  top: 25px;
+  left: 10px;
+  z-index: 2;
 }
 
 :is(.index__container-container, .index__container--menu, .pagetwo__flex-container, 
