@@ -108,6 +108,12 @@ body {
 .fuente__logo {
   font-weight: bold;
 }
+.btn__custom--form {
+  @extend .btn-primary; //se extiende la clase bt-primary de Bootstrap
+  //personalizamos colores de fondo y fuente del botón
+  color: $primary;
+  background-color: $secondary;
+}
 
 //Configuración para navegadores antiguos sin soporte de CSS-Display:Grid
 @supports (not (display: grid)) {
@@ -126,7 +132,7 @@ body {
     .uoc__logo {
       max-width: 50%; //se acotan cotas máximas de anchura
     }
-  }
+  }//de media >320
   
   @media (min-width: 768px) {
     .index__container--menu, 
@@ -140,7 +146,8 @@ body {
     .uoc__footer {
       text-align: center;
     }
-  }
+  }//de media >768
+
   @media (min-width: 1024px) {
     .index__container--menu, 
     .index__container-container, 
@@ -181,8 +188,8 @@ body {
       text-align: center;
       font-size: 14px;
     }  
-  }
-}//de soporte no soportado
+  }//de media >1024
+}//de support no soportado por navegador Web
 
 
 /* Estilos para pantallas de al menos 320px de ancho */
