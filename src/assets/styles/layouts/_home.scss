@@ -108,9 +108,7 @@ body {
 .fuente__logo {
   font-weight: bold;
 }
-.btn-primary{
-  padding: 2%;
-}  
+//personalización de botón en bootstrap
 .btn__custom--form {
   @extend .btn-primary; //se extiende la clase bt-primary de Bootstrap
   //personalizamos colores de fondo y fuente del botón
